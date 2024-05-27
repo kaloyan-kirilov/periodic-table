@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   preserveAspectRatio="xMidYMid"
+   zoomAndPan="magnify"
+   id="Electron shell Ununoctium"
+   viewBox="-1000 -1000 500 500"
+   width="500"
+   height="500"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata
+     id="metadata4245">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <desc
+     id="element_description">118 Uuo (Ununoctium) Legend_color:#e8e8e8</desc>
+  <desc
+     id="element_electron_configuration">2,8,18,32,32,18,8</desc>
+  <defs
+     id="defs4107">
+    <circle
+       id="electron"
+       fill="#77868b"
+       stroke="none"
+       r="30"
+       cx="0"
+       cy="0" />
+  </defs>
+  <path
+     fill="#c0ffff"
+     stroke="#000000"
+     stroke-width="0.709"
+     stroke-miterlimit="0"
+     d="m -712.5,-750 a 37.5,37.5 0 1 1 -75,0 37.5,37.5 0 1 1 75,0 z"
+     id="nucleus"
+     style="display:inline;fill:#db1828;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none" />
+  <path
+     id="orbit"
+     style="display:inline;fill:none;fill-opacity:1;stroke:#77868b;stroke-width:1.5;stroke-dasharray:none;stroke-opacity:1"
+     d="m -689.43235,-750.08602 c 2.29317,46.91623 -57.70871,78.39906 -95.01506,49.86235 -39.924,-24.76564 -31.73977,-92.04282 12.94682,-106.53035 38.1753,-15.71553 83.32189,15.45529 82.06824,56.668 z m 28.24212,-4.7e-4 c 2.25411,58.09553 -61.78189,104.46235 -116.29836,84.42141 -55.90282,-15.77976 -80.34823,-90.93553 -44.39576,-136.56753 32.38517,-48.23294 111.39435,-48.23294 143.77953,0 10.96682,15.00518 17.07176,33.63741 16.91459,52.14612 z" />
+  <path
+     id="4-Be"
+     style="fill:#36a4ff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-opacity:1;display:inline"
+     d="m -750.30587,-829.97891 a 9.412,9.412 0 1 1 0,-18.824 9.412,9.412 0 1 1 0,18.824 z m 0,178.76306 a 9.412,9.412 0 1 1 0,-18.824 9.412,9.412 0 1 1 0,18.824 z m 0,-150.52941 a 9.412,9.412 0 1 1 0,-18.824 9.412,9.412 0 1 1 0,18.824 z m 0,122.31458 a 9.412,9.412 0 1 1 0,-18.824 9.412,9.412 0 1 1 0,18.824 z"
+     transform="translate(0.3059,-3e-5)" />
+</svg>

@@ -1,0 +1,528 @@
+@font-face { 
+    font-family: "Saira Semi Condensed";
+    font-style: normal;
+    font-weight: 500;
+    src: url(../font/SairaSemiCondensed-Medium.woff2) format("woff2");
+}
+
+@font-face { 
+    font-family: "Saira Semi Condensed";
+    font-style: normal;
+    font-weight: 600;
+    src: url(../font/SairaSemiCondensed-SemiBold.woff2) format("woff2");
+}
+
+:root {
+    --off-black: #060920;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+body {
+    display: flex;
+    user-select: none;
+
+    font-family: "Saira Semi Condensed";
+    font-style: normal;
+    font-weight: 500;
+    text-rendering: optimizeLegibility;
+}
+
+#pt-container {
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid grey;
+    margin: 0 1em 0 1em;
+    position: relative;
+}
+
+.bg-light {
+    background-color: white;
+}
+
+.bg-dark {
+    background-color: var(--off-black);
+}
+
+.lights-on {
+    color: black;
+    /* background-color: hsl(42, 10%, 80%); */
+    background: hsl(42, 10%, 80%) url("../img/bg_hexagon-tiles_light.png") repeat center;
+}
+
+.lights-off {
+    color: white;
+    /* background-color: hsl(231, 80%, 4%); */
+    background: hsl(231, 80%, 4%) url("../img/bg_hexagon-tiles_dark.png") repeat center;
+}
+
+#periodic-table {  
+    margin: 1em 2em 2em 2em;
+}
+
+table, td {
+    border: 2px solid transparent;
+    border-collapse: collapse;
+}
+
+#pt-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding-bottom: .3em;
+    font-size: 2em;
+}
+
+.title-line {
+    width: 25.5%;
+    height: .1em;
+    margin-top: .1em;
+    background-color: hsl(350, 80%, 55%);
+}
+
+#height-margin {
+    height: 1.5em;
+}
+
+.pt-element, #pt-lanthanides, #pt-actinides {
+    width: 2.85em;
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+.pt-element:hover, #i-close:hover {
+    filter: brightness(120%);
+}
+
+.group, .period {
+    position: absolute;
+    cursor: auto;
+    font-size: .9em;
+}
+
+.group {
+    top: -1.55em;  
+}
+
+.period {
+    width: 1em;
+    left: -1.35em;
+    text-align: end;
+}
+
+.number {
+    position: absolute;
+    top: .15em;
+    font-size: .7em;
+    font-weight: 600;
+    color: var(--off-black);
+}
+
+.symbol {
+    position: relative;
+    font-size: 1.3em;
+    padding-top: .6em;
+    color: var(--off-black);
+}
+
+.num-range {
+    font-size: .7em;
+    font-weight: 600;
+    color: var(--off-black);
+}
+
+.alkali-metals {
+    background-color: hsl(11, 100%, 63%);
+}
+
+.alkaline-earth-metals {
+    background-color: hsl(31, 97%, 63%);
+}
+
+.transition-metals {
+    background-color: hsl(50, 100%, 65%);
+}
+
+.other-metals {
+    background-color: hsl(109, 59%, 58%);
+}
+
+.metalloids {
+    background-color: hsl(170, 75%, 65%);
+}
+
+.non-metals {
+    background-color: hsl(205, 100%, 65%);
+}
+
+.halogens {
+    background-color: hsl(230, 100%, 73%);
+}
+
+.noble-gases {
+    background-color: hsl(255, 50%, 67%);
+}
+
+.lanthanides, .lanthanides-sample {
+    background-color: hsl(56, 35%, 66%);
+}
+
+.actinides, .actinides-sample {
+    background-color: hsl(66, 25%, 50%);
+}
+
+.lanthanides-actinides {
+    text-align: end;
+    padding-right: .35em;
+}
+
+#color-info {
+    width: 90%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    opacity: 1;
+}
+
+.color-series {
+    display: flex;
+    align-items: center;
+    height: 1em;
+    margin: .4em;
+}
+
+.color-sample {
+    width: 2em;
+    height: 1em;
+    margin-right: .3em;
+}
+
+#element-info {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid grey;
+    padding: .5em;
+    margin: auto;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+}
+
+#i-element, #shell-diagram {
+    width: 6.8em;
+    height: 6.8em;
+    color: var(--off-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#shell-diagram {
+    background-color: rgba(255, 255, 255, 5%);
+}
+
+#i-text {
+    margin-left: .5em;
+    text-align: start;
+    line-height: 1.35em;
+}
+
+#i-group-period {
+    width: 10em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#i-protons {
+    color: #db1828ff;
+}
+
+#electron-shells {
+    color: #36a4ffff;
+    display: flex;
+    flex-direction: column;
+    line-height: 1em;
+    text-align: end;
+    position: absolute;
+    top: -2px;
+    left: -1.35em;
+    width: 1em;
+}
+
+#i-number {
+    position: absolute;
+    top: .1em;
+    left: .55em;
+}
+
+#i-mass {
+    position: absolute;
+    top: .1em;
+    right: .55em;
+}
+
+#i-symbol {
+    font-size: 2.5em;
+    position: absolute;
+}
+
+#i-name {
+    position: absolute;
+    bottom: .35em;
+}
+
+#i-close {
+    width: 1.2em;
+    height: 1.2em;
+    background-color: #ff4b34;
+    background-image: url("../img/x-close.svg");
+    background-size: contain;
+    position: absolute;
+    right: -1.65em;
+    top: -2px;
+    cursor: pointer;
+}
+
+#protons-electrons {
+    height: 3em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    opacity: 0;
+}
+
+.particle {
+    display: flex;
+    align-items: center;
+}
+
+#protons, #electrons {
+    width: .8em;
+    height: .8em;
+    border-radius: 50%;
+    margin-right: .2em;
+}
+
+#protons {
+    background-color: #db1828ff;
+}
+
+#electrons {
+    background-color: #36a4ffff;
+}
+
+#mode-switch {
+    width: fit-content;
+    height: fit-content;
+    background-color: #b3b3b3;
+    outline: .2em solid #b3b3b3;
+    cursor: pointer;
+    margin: .5em auto 1.3em auto;
+}
+
+#state-up, #state-down {
+    width: .7em;
+    height: .9em;
+}
+
+.switch-on {
+    background-color: white;
+}
+
+.switch-off {
+    background-color: transparent;
+}
+
+#lightbulb {
+    width: 1.6em;
+    height: 1.6em;
+    margin: auto;
+    position: relative;
+}
+
+.lightbulb-on {
+    background-image: url("../img/lightbulb-on.svg");
+    background-size: contain;
+}
+
+.lightbulb-off {
+    background-image: url("../img/lightbulb-off.svg");
+    background-size: contain;
+}
+
+.pt-element, #pt-lanthanides, #pt-actinides, #i-element, #i-close {
+    border: 1px outset rgba(255, 255, 255, .5);
+}
+
+.symbol, .number, .num-range, #i-symbol, #i-number, #i-mass, #i-name {
+    opacity: .85;
+}
+
+#links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+#github-link {
+    color: inherit;
+    line-height: 2.5em;
+    opacity: .5;
+}
+
+#github-link:hover {
+    opacity: 1;
+}
+
+#shell-diagram::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    background-size: contain;
+    background-image:
+    url("../img/diagrams/shell_diagram_1.svg"),
+    url("../img/diagrams/shell_diagram_2.svg"),
+    url("../img/diagrams/shell_diagram_3.svg"),
+    url("../img/diagrams/shell_diagram_4.svg"),
+    url("../img/diagrams/shell_diagram_5.svg"),
+    url("../img/diagrams/shell_diagram_6.svg"),
+    url("../img/diagrams/shell_diagram_7.svg"),
+    url("../img/diagrams/shell_diagram_8.svg"),
+    url("../img/diagrams/shell_diagram_9.svg"),
+    url("../img/diagrams/shell_diagram_10.svg"),
+    url("../img/diagrams/shell_diagram_12.svg"),
+    url("../img/diagrams/shell_diagram_13.svg"),
+    url("../img/diagrams/shell_diagram_14.svg"),
+    url("../img/diagrams/shell_diagram_15.svg"),
+    url("../img/diagrams/shell_diagram_16.svg"),
+    url("../img/diagrams/shell_diagram_17.svg"),
+    url("../img/diagrams/shell_diagram_18.svg"),
+    url("../img/diagrams/shell_diagram_19.svg"),
+    url("../img/diagrams/shell_diagram_20.svg"),
+    url("../img/diagrams/shell_diagram_21.svg"),
+    url("../img/diagrams/shell_diagram_22.svg"),
+    url("../img/diagrams/shell_diagram_23.svg"),
+    url("../img/diagrams/shell_diagram_24.svg"),
+    url("../img/diagrams/shell_diagram_25.svg"),
+    url("../img/diagrams/shell_diagram_26.svg"),
+    url("../img/diagrams/shell_diagram_27.svg"),
+    url("../img/diagrams/shell_diagram_28.svg"),
+    url("../img/diagrams/shell_diagram_29.svg"),
+    url("../img/diagrams/shell_diagram_30.svg"),
+    url("../img/diagrams/shell_diagram_31.svg"),
+    url("../img/diagrams/shell_diagram_32.svg"),
+    url("../img/diagrams/shell_diagram_33.svg"),
+    url("../img/diagrams/shell_diagram_34.svg"),
+    url("../img/diagrams/shell_diagram_35.svg"),
+    url("../img/diagrams/shell_diagram_36.svg"),
+    url("../img/diagrams/shell_diagram_37.svg"),
+    url("../img/diagrams/shell_diagram_38.svg"),
+    url("../img/diagrams/shell_diagram_39.svg"),
+    url("../img/diagrams/shell_diagram_40.svg"),
+    url("../img/diagrams/shell_diagram_41.svg"),
+    url("../img/diagrams/shell_diagram_42.svg"),
+    url("../img/diagrams/shell_diagram_43.svg"),
+    url("../img/diagrams/shell_diagram_44.svg"),
+    url("../img/diagrams/shell_diagram_45.svg"),
+    url("../img/diagrams/shell_diagram_46.svg"),
+    url("../img/diagrams/shell_diagram_47.svg"),
+    url("../img/diagrams/shell_diagram_48.svg"),
+    url("../img/diagrams/shell_diagram_49.svg"),
+    url("../img/diagrams/shell_diagram_50.svg"),
+    url("../img/diagrams/shell_diagram_51.svg"),
+    url("../img/diagrams/shell_diagram_52.svg"),
+    url("../img/diagrams/shell_diagram_53.svg"),
+    url("../img/diagrams/shell_diagram_54.svg"),
+    url("../img/diagrams/shell_diagram_55.svg"),
+    url("../img/diagrams/shell_diagram_56.svg"),
+    url("../img/diagrams/shell_diagram_57.svg"),
+    url("../img/diagrams/shell_diagram_58.svg"),
+    url("../img/diagrams/shell_diagram_59.svg"),
+    url("../img/diagrams/shell_diagram_60.svg"),
+    url("../img/diagrams/shell_diagram_61.svg"),
+    url("../img/diagrams/shell_diagram_62.svg"),
+    url("../img/diagrams/shell_diagram_63.svg"),
+    url("../img/diagrams/shell_diagram_64.svg"),
+    url("../img/diagrams/shell_diagram_65.svg"),
+    url("../img/diagrams/shell_diagram_66.svg"),
+    url("../img/diagrams/shell_diagram_67.svg"),
+    url("../img/diagrams/shell_diagram_68.svg"),
+    url("../img/diagrams/shell_diagram_69.svg"),
+    url("../img/diagrams/shell_diagram_70.svg"),
+    url("../img/diagrams/shell_diagram_71.svg"),
+    url("../img/diagrams/shell_diagram_72.svg"),
+    url("../img/diagrams/shell_diagram_73.svg"),
+    url("../img/diagrams/shell_diagram_74.svg"),
+    url("../img/diagrams/shell_diagram_75.svg"),
+    url("../img/diagrams/shell_diagram_76.svg"),
+    url("../img/diagrams/shell_diagram_77.svg"),
+    url("../img/diagrams/shell_diagram_78.svg"),
+    url("../img/diagrams/shell_diagram_79.svg"),
+    url("../img/diagrams/shell_diagram_80.svg"),
+    url("../img/diagrams/shell_diagram_81.svg"),
+    url("../img/diagrams/shell_diagram_82.svg"),
+    url("../img/diagrams/shell_diagram_83.svg"),
+    url("../img/diagrams/shell_diagram_84.svg"),
+    url("../img/diagrams/shell_diagram_85.svg"),
+    url("../img/diagrams/shell_diagram_86.svg"),
+    url("../img/diagrams/shell_diagram_87.svg"),
+    url("../img/diagrams/shell_diagram_88.svg"),
+    url("../img/diagrams/shell_diagram_89.svg"),
+    url("../img/diagrams/shell_diagram_90.svg"),
+    url("../img/diagrams/shell_diagram_91.svg"),
+    url("../img/diagrams/shell_diagram_92.svg"),
+    url("../img/diagrams/shell_diagram_93.svg"),
+    url("../img/diagrams/shell_diagram_94.svg"),
+    url("../img/diagrams/shell_diagram_95.svg"),
+    url("../img/diagrams/shell_diagram_96.svg"),
+    url("../img/diagrams/shell_diagram_97.svg"),
+    url("../img/diagrams/shell_diagram_98.svg"),
+    url("../img/diagrams/shell_diagram_99.svg"),
+    url("../img/diagrams/shell_diagram_100.svg"),
+    url("../img/diagrams/shell_diagram_101.svg"),
+    url("../img/diagrams/shell_diagram_102.svg"),
+    url("../img/diagrams/shell_diagram_103.svg"),
+    url("../img/diagrams/shell_diagram_104.svg"),
+    url("../img/diagrams/shell_diagram_105.svg"),
+    url("../img/diagrams/shell_diagram_106.svg"),
+    url("../img/diagrams/shell_diagram_107.svg"),
+    url("../img/diagrams/shell_diagram_108.svg"),
+    url("../img/diagrams/shell_diagram_109.svg"),
+    url("../img/diagrams/shell_diagram_110.svg"),
+    url("../img/diagrams/shell_diagram_111.svg"),
+    url("../img/diagrams/shell_diagram_112.svg"),
+    url("../img/diagrams/shell_diagram_113.svg"),
+    url("../img/diagrams/shell_diagram_114.svg"),
+    url("../img/diagrams/shell_diagram_115.svg"),
+    url("../img/diagrams/shell_diagram_116.svg"),
+    url("../img/diagrams/shell_diagram_117.svg"),
+    url("../img/diagrams/shell_diagram_118.svg");
+}
